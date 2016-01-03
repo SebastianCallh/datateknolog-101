@@ -1,0 +1,44 @@
+.fl_left {
+  float:left;
+}
+
+.fl_right {
+  float:right;
+}
+
+#courses-container div.course-name {
+  font-weight: bold;
+  width: 260px;
+}
+
+#courses-container div.course-points {
+  font-weight: bold;
+  width: 40px;
+}
+
+#courses-container div.course-text {
+  float:left;
+  margin-top: 15px;
+}
+
+#courses-container .course-text-visible {
+  opacity: 1;
+  width: 300px;
+  background-color: #ffffff;
+  position: absolute;
+  padding: 10px;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  -ms-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+}
+
+#courses-container .course-text-hidden {
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+}
