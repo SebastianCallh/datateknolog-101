@@ -1,4 +1,8 @@
-var jsonData = [
+
+//Creates a "namespace" to prevent naming collisions
+var CourseGraph = window.CourseGraph || {};
+
+CourseGraph.courseJson = [
   {
     'id': 'TATA65',
     'name': 'Diskret matematik',
@@ -353,7 +357,7 @@ var jsonData = [
     'start': 'HT1',
     'end': 'HT2',
     'precedes': '',
-    'text': 'I den här kursen höjs ambitionsnivåerna från föregående, med målet att kontruera ' +
+    'text': 'I den här kursen höjs ambitionsnivåerna från föregående med målet att kontruera ' +
             'en robot. I ett projektarbete väljs en robotkropp med 3 processorer ' +
             'på som ska programmeras för att uppfylla en uppgift. T.ex. kan roboten programmeras ' +
             'för att navigera och kartlägga ett område eller navigera en labyrint. Projektarbetet ' +

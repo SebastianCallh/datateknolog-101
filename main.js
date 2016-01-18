@@ -1,7 +1,11 @@
 'use strict';
 
+//Creates a "namespace" to prevent naming collisions
+var CourseGraph = window.CourseGraph || {};
+
 //Represents a course and a node in the graph
-function Course(id, name, points, position, circleRadius, color, precedesIds, text, appContainer) {
+CourseGraph.Course = function (id, name, points, position, circleRadius, color,
+                                precedesIds, text, appContainer) {
   this.id =  id;
   this.name = name;
   this.position = position;
@@ -15,51 +19,54 @@ function Course(id, name, points, position, circleRadius, color, precedesIds, te
                            <div class="course-text">${text}</div>`;
   appContainer.appendChild(this.infoBox);
   this.hideInfobox();
-}
+};
 
 //Draws the node to the context with edges to continuing courses
-Course.prototype.draw = function(context) {
-    drawCircle(context, this.position, this.circleRadius, this.color, colorLuminance(this.color, -0.5));
+CourseGraph.Course.prototype.draw = function(context) {
+    CourseGraph.drawCircle(context, this.position, this.circleRadius,
+      this.color, CourseGraph.colorLuminance(this.color, -0.5));
+
     for (var i = 0; i < this.precedes.length; i++) {
       var procedingCourse = this.precedes[i];
-      drawLine(context, this.position, procedingCourse.position, this.color);
+      CourseGraph.drawLine(context, this.position,
+        procedingCourse.position, this.color);
     }
-    drawText(context, this.position, this.id, colorLuminance(this.color, -0.5), '12pt Calibri');
-}
+    CourseGraph.drawText(context, this.position, this.id,
+      CourseGraph.colorLuminance(this.color, -0.5),
+      CourseGraph.settings.breadTextFont);
+};
 
-//Shows the infobox. THe
-Course.prototype.showInfobox = function() {
+//The infobox contains the course info
+CourseGraph.Course.prototype.showInfobox = function() {
   this.infoBox.className = 'course-text-visible';
   this.infoBox.style.top = this.position.y - this.circleRadius;
   this.infoBox.style.left = this.position.x + this.circleRadius * 2;
-}
+};
 
-Course.prototype.hideInfobox = function() {
+CourseGraph.Course.prototype.hideInfobox = function() {
   this.infoBox.className = 'course-text-hidden';
-}
+};
 
-//Returns a list of all courses as Course objects. The bunch of parameters
-//are passed to be able to calculate positions in one go
-function getCourses(jsonCourses, periodOffset, fieldsOffset, periodsPerYear, circleRadius, marginTop, appContainer) {
-  var periods = { 'HT1': 0, 'HT2': 1, 'VT1': 2, 'VT2': 3 }
-  var fieldColor = { 'math': '#754022', 'software': '#70BD44',
-                     'hardware': '#F7E623', 'physics': '#E5398D',
-                     'softskills': '#20407C' }
+//Returns a list of all courses as Course objects.
+CourseGraph.getCourses = function(jsonCourses, periodOffset, blockOffset, appContainer) {
+  var setting = CourseGraph.settings;
   var courses = {};
+  var positionInYear = { 'HT1': 0, 'HT2': 1, 'VT1': 2, 'VT2': 3 };
 
-  //Parses the jsonCourses
+  //Calculates how many periods into the education the course
+  //is and creates it from the json data
   for (var i = 0; i < jsonCourses.length; i++) {
     var courseData = jsonCourses[i];
-    var posX = courseData['block'] * fieldsOffset;
-    var totalPeriods = ((courseData['year'] - 1) * periodsPerYear + periods[courseData['start']]);
-    var posY = totalPeriods * periodOffset + marginTop + periodOffset / 2;
+    var posX = courseData['block'] * blockOffset;
+    var totalPeriods = ((courseData['year'] - 1) * setting.periodsPerYear + positionInYear[courseData['start']]);
+    var posY = totalPeriods * periodOffset + setting.margin + periodOffset / 2;
     var position = {x:posX, y:posY};
-    courses[courseData['id']] = new Course(courseData['id'],
+    courses[courseData['id']] = new CourseGraph.Course(courseData['id'],
                             courseData['name'],
                             courseData['points'],
                             position,
-                            circleRadius,
-                            fieldColor[courseData['field']],
+                            setting.nodeRadius,
+                            setting.fieldColor[courseData['field']],
                             courseData['precedes'],
                             courseData['text'],
                             appContainer);
@@ -76,71 +83,77 @@ function getCourses(jsonCourses, periodOffset, fieldsOffset, periodsPerYear, cir
     }
   }
   return courses;
-}
+};
 
 //Draws the lines and text representing years and periods
-function drawPeriodsAndYears(canvas, context, periodsPerYear, periodsTotal, periodOffset, margin) {
-  var lineColor = '#d5d6dd';
+CourseGraph.drawPeriodsAndYears = function(canvas, context, periodOffset) {
+  var setting = CourseGraph.settings;
   var textMargin = {x: 20, y: -10};
 
-  for (var i = 0; i < periodsTotal; i++) {
-    var yOffset = i * periodOffset + margin;
-    var period = i % periodsPerYear;
+  for (var i = 0; i < setting.periodsTotal; i++) {
+    var yOffset = i * periodOffset + setting.margin;
+    var period = i % setting.periodsPerYear;
     var position = {x:textMargin.x, y:yOffset + textMargin.y};
     var term = period <= 1 ? 'HT ' : 'VT ';
-    drawLine(context, {x: 0, y: yOffset}, {x: canvas.width, y: yOffset}, lineColor);
+    CourseGraph.drawLine(context, {x: 0, y: yOffset},
+      {x: canvas.width, y: yOffset}, setting.lineColor);
 
     if (period == 0) {
-      drawText(context, position,
-               Math.floor(i / periodsPerYear) + 1,
-               '#000000', '40pt Calibri');
+      CourseGraph.drawText(context, position,
+        Math.floor(i / setting.periodsPerYear) + 1,
+        setting.yearColor,
+        setting.yearFont);
     }
+
     term += period % 2 == 0 ? 1 : 2;
     position.y += 30;
-    drawText(context, position, term, '#111111', '20px Calibri');
+    CourseGraph.drawText(context, position, term,
+      setting.periodColor,
+      setting.periodFont);
   }
-}
+};
 
 //Sets an onmousemove handler to hide and show infoboxes on hover
-function setupMouseMoveEvent(canvas, courses, circleRadius) {
+CourseGraph.setupMouseMoveEvent = function(canvas, courses) {
   canvas.onmousemove = function(e) {
     var mousePos = {x: e.pageX - canvas.offsetLeft,
                     y: e.pageY - canvas.offsetTop};
 
     for (var id in courses) {
       var course = courses[id];
-      if (distance(mousePos, course.position) < circleRadius) {
+      if (CourseGraph.distance(mousePos, course.position) <
+            CourseGraph.settings.nodeRadius) {
         course.showInfobox();
       } else {
         course.hideInfobox();
       }
     }
   }
-}
+};
 
-function drawCourses(context, courses) {
+CourseGraph.drawCourses = function(context, courses) {
   for (var id in courses) {
     courses[id].draw(context);
   }
-}
+};
 
-function drawText(context, pos, text, color, font) {
+CourseGraph.drawText = function(context, pos, text, color, font) {
   context.font = font;
   context.fillStyle = color;
   var metrics = context.measureText(text);
   var magicMarginTop = 5; //Can't get the height of text :(
   context.fillText(text, pos.x - metrics.width / 2, pos.y + magicMarginTop);
-}
+};
 
-function drawLine(context, startPos, endPos, color) {
+CourseGraph.drawLine = function(context, startPos, endPos, color) {
   context.beginPath();
   context.moveTo(startPos.x, startPos.y);
   context.lineTo(endPos.x, endPos.y);
   context.strokeStyle = color;
   context.stroke();
-}
+};
 
-function drawCircle(context, pos, radius, color, outlineColor) {
+CourseGraph.drawCircle = function(context, pos, radius, color, outlineColor) {
   context.beginPath();
   context.arc(pos.x, pos.y, radius, 0, 2 * Math.PI, false);
   context.fillStyle = color;
@@ -148,15 +161,15 @@ function drawCircle(context, pos, radius, color, outlineColor) {
   context.lineWidth = 5;
   context.strokeStyle = outlineColor;
   context.stroke();
-}
+};
 
-function distance(pos1, pos2) {
+CourseGraph.distance = function(pos1, pos2) {
   return Math.sqrt(Math.pow(pos1.x - pos2.x, 2) + Math.pow(pos1.y - pos2.y, 2));
-}
+};
 
 //Modifies luminance for a hex color by a certain decimal. I.e. 0.2, -0.5.
 //Source: http://www.sitepoint.com/javascript-generate-lighter-darker-color/
-function colorLuminance(hex, lum) {
+CourseGraph.colorLuminance = function(hex, lum) {
 
 	// validate hex string
 	hex = String(hex).replace(/[^0-9a-f]/gi, '');
@@ -174,26 +187,23 @@ function colorLuminance(hex, lum) {
 	}
 
 	return rgb;
-}
+};
 
-(function main() {
+//Expects a json array named "courseJson" and a json object called "settings"
+//in the global namespace
+(CourseGraph.main = function() {
   var canvas = document.getElementById('courseCanvas');
   var context = canvas.getContext('2d');
-  var margin = 80;
-  canvas.width = 1000;
-  canvas.height = 1400;
-
-  var periodsPerYear = 4;
-  var periodsTotal = 12;
-  var blocks = 20;
-  var periodOffset = (canvas.height - margin) / periodsTotal;
-  var blockOffset = canvas.width / (blocks + 1);
-  var circleRadius = 30;
+  var setting = CourseGraph.settings;
   var appContainer = document.getElementById('courses-container');
-  var courses = getCourses(jsonData, periodOffset, blockOffset,
-                           periodsPerYear, circleRadius, margin, appContainer);
+  var courses = CourseGraph.getCourses(CourseGraph.courseJson,
+                  periodOffset, blockOffset, appContainer);
+  canvas.width = setting.width;
+  canvas.height = setting.height
+  var periodOffset = (canvas.height - setting.margin) / setting.periodsTotal;
+  var blockOffset = canvas.width / (setting.blocks + 1);
 
-  drawPeriodsAndYears(canvas, context, periodsPerYear, periodsTotal, periodOffset, margin);
-  setupMouseMoveEvent(canvas, courses, circleRadius);
-  drawCourses(context, courses, margin);
+  CourseGraph.drawPeriodsAndYears(canvas, context, periodOffset);
+  CourseGraph.setupMouseMoveEvent(canvas, courses, setting.circleRadius);
+  CourseGraph.drawCourses(context, courses, setting.margin);
 })();
