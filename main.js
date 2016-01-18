@@ -9,17 +9,12 @@ function Course(id, name, points, position, circleRadius, color, precedesIds, te
   this.color = color;
   this.precedesIds = precedesIds;
   this.precedes = [];
-  this.createInfobox(name, points, text);
-  appContainer.appendChild(this.infoBox);
-  this.hideInfobox();
-}
-
-//The infobox is the html div that contains the course description
-Course.prototype.createInfobox = function(name, points, text) {
   this.infoBox = document.createElement('div');
   this.infoBox.innerHTML = `<div class="course-name fl_left">${name}</div>
-                         <div class="course-points fl_right">${points} hp</div>
-                         <div class="course-text">${text}</div>`;
+                           <div class="course-points fl_right">${points} hp</div>
+                           <div class="course-text">${text}</div>`;
+  appContainer.appendChild(this.infoBox);
+  this.hideInfobox();
 }
 
 //Draws the node to the context with edges to continuing courses
@@ -84,20 +79,22 @@ function getCourses(jsonCourses, periodOffset, fieldsOffset, periodsPerYear, cir
 }
 
 //Draws the lines and text representing years and periods
-function drawPeriodsAndYears(canvas, context, periodsPerYear, periodsTotal, periodOffset, marginTop) {
+function drawPeriodsAndYears(canvas, context, periodsPerYear, periodsTotal, periodOffset, margin) {
   var lineColor = '#d5d6dd';
-  var margin = {x: 20, y: -10};
+  var textMargin = {x: 20, y: -10};
 
   for (var i = 0; i < periodsTotal; i++) {
-    var yOffset = i * periodOffset + marginTop;
-    drawLine(context, {x: 0, y: yOffset}, {x: canvas.width, y: yOffset}, lineColor);
+    var yOffset = i * periodOffset + margin;
     var period = i % periodsPerYear;
-    var position = {x:margin.x, y:yOffset + margin.y};
+    var position = {x:textMargin.x, y:yOffset + textMargin.y};
+    var term = period <= 1 ? 'HT ' : 'VT ';
+    drawLine(context, {x: 0, y: yOffset}, {x: canvas.width, y: yOffset}, lineColor);
 
     if (period == 0) {
-      drawText(context, position, Math.floor(i / periodsPerYear) + 1, '#000000', '40pt Calibri');
+      drawText(context, position,
+               Math.floor(i / periodsPerYear) + 1,
+               '#000000', '40pt Calibri');
     }
-    var term = period <= 1 ? 'HT ' : 'VT ';
     term += period % 2 == 0 ? 1 : 2;
     position.y += 30;
     drawText(context, position, term, '#111111', '20px Calibri');
@@ -179,25 +176,24 @@ function colorLuminance(hex, lum) {
 	return rgb;
 }
 
-
 (function main() {
   var canvas = document.getElementById('courseCanvas');
   var context = canvas.getContext('2d');
+  var margin = 80;
   canvas.width = 1000;
   canvas.height = 1400;
 
-  var marginTop = 80;
   var periodsPerYear = 4;
   var periodsTotal = 12;
   var blocks = 20;
-  var periodOffset = canvas.height / periodsTotal;
+  var periodOffset = (canvas.height - margin) / periodsTotal;
   var blockOffset = canvas.width / (blocks + 1);
   var circleRadius = 30;
   var appContainer = document.getElementById('courses-container');
   var courses = getCourses(jsonData, periodOffset, blockOffset,
-                           periodsPerYear, circleRadius, marginTop, appContainer);
+                           periodsPerYear, circleRadius, margin, appContainer);
 
-  drawPeriodsAndYears(canvas, context, periodsPerYear, periodsTotal, periodOffset, marginTop);
+  drawPeriodsAndYears(canvas, context, periodsPerYear, periodsTotal, periodOffset, margin);
   setupMouseMoveEvent(canvas, courses, circleRadius);
-  drawCourses(context, courses, marginTop);
+  drawCourses(context, courses, margin);
 })();

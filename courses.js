@@ -9,12 +9,12 @@ var jsonData = [
     'start': 'HT1',
     'end': 'HT1',
     'precedes': 'TSEA22,TDDD88',
-    'text': 'Diskret matematik behandlar många teoretiska grunder ' +
-            'inom datavetenskap, och moment från kursen återkommer igenom resten av hela utbildningen, ' +
-            'även i de kurser som inte är direkta påbyggnadskurser.' +
-            ' Boolesk algebra tillämpas flitigt i TSEA22 och TDDD88 och grafer och ' +
-            ' trädstrukturer implementeras som mycket användbara datastrukturer i ' +
-            ' TDDD86. Vissa moment används även i labbserien i parallellkursen TDDC66.'
+    'text': 'Diskret matematik (också känd som diskmatten) behandlar många teoretiska grunder ' +
+            'inom datavetenskap och moment från kursen återkommer igenom resten av hela utbildningen, ' +
+            'även i kurser som inte är direkta påbyggnadskurser. ' +
+            'Boolesk algebra tillämpas flitigt i TSEA22 och TDDD88 och grafer ' +
+            'implementeras som mycket användbara datastrukturer i TDDD86. ' +
+            'Vissa moment används även i labbserien i parallellkursen TDDC66.'
   },
   {
     'id': 'TDDC66',
@@ -27,7 +27,7 @@ var jsonData = [
     'end': 'HT1',
     'precedes': 'TDDD73,TDDD60',
     'text': 'Här introduceras universitetets datormiljö tillsammans med operativsystemet Linux Mint. ' +
-            'Programmeringsspråket Python introduceras också och man får genomföra sina första laborationer. '
+            'Programmeringsspråket Python introduceras också och de första laborationer genomförs . '
   },
   {
     'id': 'TDDD63',
@@ -41,20 +41,23 @@ var jsonData = [
     'precedes': '',
     'text': 'Perspektivkursen ger en överblick över datavetenskap som helhet. ' +
             'Allt mellan hur data lagras till artificiell intelligens tas upp här. ' +
-            'Kursen inkluderar också ett projektarbete där man får bland annat ' +
-            'kan få programmera en hemsida, en AI eller fotbollsrobotar.'
+            'I kursen utförs även ett projektarbete som bland annat kan gå ut på att' +
+            'få programmera en webbapplikation, en AI eller fotbollsrobotar.'
   },
   {
-    'id': 'TDDD70',
-    'name': 'Ingenjörsprofessionalism del 1',
+    'id': 'TDDD99',
+    'name': 'Ingenjörsprofessionalism',
     'field': 'softskills',
     'block': 15,
     'points': 1,
     'year': 1,
     'start': 'HT1',
-    'end': 'HT2',
+    'end': 'HT1',
     'precedes': '',
-    'text': 'Det här är ingprof'
+    'text': 'Ingenjörsprofessionalismen sträcker sig över samtliga 3 år och ' +
+            'behandlar så kallade "soft skills". Saker som inte kräver att integraler ' +
+            'eller assemblerprogrammering, men som fortfarande är viktiga ute i näringslivet. ' +
+            'Områden som tas upp är till exempel prokrastinering, presentationsteknik och etik.'
   },
   {
     'id': 'TDDD73',
@@ -66,10 +69,10 @@ var jsonData = [
     'start': 'HT2',
     'end': 'HT2',
     'precedes': 'TDDD78',
-    'text': 'Den första programmeringskursen går igenom grundläggande begrepp  ' +
-            'så som iteration, rekursion, indata/utdata och högre ordningens funktioner. ' +
+    'text': 'Den första renodlade programmeringskursen. Här gås grundläggande programmeringsbegrepp igenom ' +
+            'så som iteration, rekursion och högre ordningens funktioner. ' +
             'Programmering genomsyrar hela utbildningen och grunderna som läggs här ' +
-            'fortsätter att byggas på i bland annat TDDD78 och TDDD86.'
+            'byggas vidare på i bland annat TDDD78 och TDDD86.'
   },
   {
     'id': 'TATA79',
@@ -80,11 +83,11 @@ var jsonData = [
     'year': 1,
     'start': 'HT2',
     'end': 'HT2',
-    'precedes': 'TATA41,TSTE24,TSRT12',
-    'text': 'Den första kursen i analysmatte. Här lär man sig tala korrekt mattespråk, ' +
-            'vad ekvivalens och implikation är och många andra grundläggande verktyg. ' +
-            'Att ha bra koll på den grundläggande matten är viktigt för att hänga med på ' +
-            'fortsttningskurserna. Eulers formler och komplexa tal som introduceras här återkommer i ' +
+    'precedes': 'TATA41,TSTE24',
+    'text': 'Den första kursen i analysmatematik. Den är även känd som "grunken" ifrån dens förra namn "matematisk grundkurs". ' +
+            'Här behandlas hur korrekt mattespråk skrivs, vad ekvivalens och implikation är och många grundläggande matteverktyg. ' +
+            'Att ha bra koll på den grundläggande matten är viktigt för att hänga med på många delar av utbildningen. ' +
+            'Specifikt återkmomer Eulers formler och komplexa tal som introduceras här i ' +
             'TFYY86, TSTE24 och TSDT84 och dess påbyggnadskurser.'
   },
   {
@@ -99,9 +102,8 @@ var jsonData = [
     'precedes': 'TATA42',
     'text': 'Envarre-ettan går igenom världen av gränsvärden, derivator och integraler ' +
             'och går hand i hand med envarre-tvåan. Så gott som alla moment här är ' +
-            'viktiga och kommer återkomma igenom hela utbildningen. Man går bland annat igenom ' +
-            'standardderivator och standardprimitiver, vilka är viktiga att man lär sig utantill. ' +
-            'En bra koll på att derivera/integrera är viktig och används frekvent i denna här och samtliga påbyggnadskurser.'
+            'viktiga och kommer återkomma igenom hela utbildningen. ' +
+            'En bra koll på derivata och integraler är viktig och används frekvent i samtliga påbyggnadskurser.'
   },
   {
     'id': 'TDDD78',
@@ -115,7 +117,7 @@ var jsonData = [
     'precedes': 'TDDD86',
     'text': 'Efter att ha läst om imperativ och funktionell programmering i TDDD73 introduceras ' +
             'här objektorienterad programmering (OOP). OOP används flitigt i näringslivet ' +
-            'och här får man lära sig grunderna och pröva på hur man strukturerar och bygger större programmeringsprojekt. '
+            'och här får man lära sig grunderna och pröva på hur ett lite större programmeringsprojekt struktureras. '
   },
   {
     'id': 'TSTE24',
@@ -128,7 +130,7 @@ var jsonData = [
     'end': 'VT2',
     'precedes': 'TSDT84',
     'text': 'Elektroniken är den första kursen som tillämpar matematik. Här räknar man ' +
-            'på strömmar och spänningar med hjälp av komplexa tal och Eulers formler. Filter introduceras här ' +
+            'på ström och spänning med hjälp av komplexa tal och Eulers formler. Filter introduceras här ' +
             'vilka används flitigt i TSDT84 och en god förståelse för dem och tvåpoler rekommenderas.'
   },
   {
@@ -141,11 +143,9 @@ var jsonData = [
     'start': 'VT2',
     'end': 'VT2',
     'precedes': 'TATA76,TSDT84,TFYY86',
-    'text': 'Efter envarre-ettan behandlas flera tillämpningar av integraler. ' +
-            'Bland annat behandlas kurvlängder och rotations-volymer/areor. Taylor- och Maclaurinutveckling ' +
-            'introduceras också som verktyg för att uppskatta funktionsvärden. Differentialekvationer är ett annat ' +
-            'viktigt matematiskt verktyg som behöver behärskas (tillsammans med det tidigare nämnda) ' +
-            ' för bla. TFYY86 samt TSDT84 med påbyggnadskurser. '
+    'text': 'Efter envarre-ettan behandlas bland annat kurvlängder, rotations-volymer/areor, ' +
+            'Taylor- och Maclaurinutveckling och differentialekvationer. Differentialekvationer ' +
+            'är ett viktigt matematiskt verktyg som behöver behärskas för bla. TFYY86, TATA76 och TSDT84 med påbyggnadskurser. '
   },
   {
     'id': 'TSEA22',
@@ -157,13 +157,13 @@ var jsonData = [
     'start': 'VT2',
     'end': 'VT2',
     'precedes': 'TSEA82',
-    'text': 'Digitaltekniken tillämpar Boolesk algebra och Karnaugh-diagram ' +
-            'för att konstruera digitala kretsar som utför logiska beräkningar. ' +
-            'Syntetiseringsspråket VHDL presenteras här vilket möjliggör att syntetisera en krets ' +
-            'utan att faktiskt koppla upp den själv. I TSEA82 används VHDL för att konstruera ' +
-            'en processor så ju mer koll man har på det desto bättre. Det här är även ' +
+    'text': 'I digitaltekniken tillämpas Boolesk algebra, Karnaugh-diagram ' +
+            'och tillståndsgrafer för att konstruera digitala kretsar. ' +
+            'Syntetiseringsspråket VHDL presenteras här vilket möjliggör att programmera en krets ' +
+            'istället för att faktiskt koppla upp den själv. VHDL återkommer i TSEA82  ' +
+            'så bra koll på det är fördelaktigt. Det här är även ' +
             'första kursen där man själv får läsa datablad för att förstå komponenter ' +
-            'vilket är en viktig färdighet i TSEA82/TSEA83/TSEA29.'
+            'vilket är en viktig färdighet i påbyggnadskurserna.'
   },
   {
     'id': 'TATA24',
@@ -175,20 +175,10 @@ var jsonData = [
     'start': 'HT1',
     'end': 'HT2',
     'precedes': 'TAOP33,TSDT84,TATA76,TFYY86',
-    'text': 'Också känd som linalgen. Här studerar man bland annat vektorer, matriser, ' +
-            'linjära ekvationssystem och linjära avbildningar. KLASSREPHJÄLP'
-  },
-  {
-    'id': 'TDDD84',
-    'name': 'Ingenjörsprofessionalism del 3',
-    'field': 'softskills',
-    'block': 15,
-    'points': 1,
-    'year': 3,
-    'start': 'HT1',
-    'end': 'HT2',
-    'precedes': '',
-    'text': 'Det här är också ingproffen'
+    'text': 'Också känd som linalgen. Här studeras bland annat vektorer, matriser, ' +
+            'linjära ekvationssystem och linjära avbildningar. TATA76 bygger vidare ' +
+            'på tidigare studerad analysmatte med hjälp av linalgen och en god förståelse ' +
+            'för vektorrum och manipulation av vektorer är viktigt.'
   },
   {
     'id': 'TDDD86',
@@ -201,9 +191,9 @@ var jsonData = [
     'end': 'HT2',
     'precedes': 'TDDB68,TDDC93',
     'text': 'DALP:en introducerar programmeringsspråket C++ och tillsammans med det kommer ' +
-            'pekare och minneshantering. Fokus ligger på hur man programmerar med prestanda ' +
+            'pekare och minneshantering. Fokus ligger på programmering med prestanda ' +
             'och man får lära sig många algoritmer och datastrukturer att ha i sin programmerings-verktygslåda. ' +
-            'Samtliga moment som bearbetas är mycket viktiga för den som vill bli en kompetent utvecklare. ' +
+            'Samtliga moment som bearbetas är högst relevanta för den som vill bli en kompetent utvecklare. ' +
             'Att ha bra koll på pekare underlättar även mycket i TDDB68.'
   },
   {
@@ -225,28 +215,32 @@ var jsonData = [
     'id': 'TFYY86',
     'name': 'Mekanik',
     'field': 'physics',
-    'block': 13,
+    'block': 15,
     'points': 6,
     'year': 2,
     'start': 'HT2',
     'end': 'HT2',
     'precedes': 'TFYA86',
-    'text': 'Mekaniken är den första G2-kursen och behöver bra förståelse för ' +
+    'text': 'Mekaniken är den första G2-kursen och kräver en bra förståelse för ' +
             'integraler, derivator och diffekvationer ifrån envarren och ' +
-            'behärskande av vektorer ifrån linalgen. Kursen behandlar klassisk mekanik ' +
-            'som inkluderar bland annat fjädrar, pendlar, vridmoment, raketer och gravitation.'
+            'av vektorer ifrån linalgen. Kursen behandlar specifikt klassisk mekanik  ' +
+            'och ger teoretisk bakgrund ifall man t.ex. vill programmera en fysikmotor ' +
+            'eller arbeta med konstruktion av bilar, flygplan och liknande.'
   },
   {
     'id': 'TATA76',
     'name': 'Flervariabelanalys',
     'field': 'math',
-    'block': 11,
+    'block': 13,
     'points': 4,
     'year': 2,
     'start': 'VT1',
     'end': 'VT1',
-    'precedes': 'TAMS27',
-    'text': ''
+    'precedes': 'TAMS27,TSRT12',
+    'text': 'Flervarren expanderar på envarren(TATA41/TATA42) med funktioner som beror på fler variabler, ' +
+            'och att behärska derivator, integraler, gränsvärden och diffekvationer är viktigt för att hänga med. ' +
+            'Flervarren är viktigt dels för reglertekniken(TSRT12) där system kan bero på fler variabler och för ' +
+            'matstaten(TAMS27) där främst integraler med fler variabler används flitigt.'
   },
   {
     'id': 'TDDB68',
@@ -258,7 +252,10 @@ var jsonData = [
     'start': 'VT1',
     'end': 'VT1',
     'precedes': 'TDDD96',
-    'text': ''
+    'text': 'Kallas även Pintos då man arbetar med ett "halvfärdig" operativsystem ' +
+            'med det namnet. Kursen går ut på att implementera flera detaljer som saknas ' +
+            'och går igenom funktionalitet i ett operativsystem så som systemanrop, ' +
+            'trådning och filsystem.'
   },
   {
     'id': 'TSEA83',
@@ -270,31 +267,38 @@ var jsonData = [
     'start': 'VT1',
     'end': 'VT2',
     'precedes': 'TSEA29',
-    'text': ''
+    'text': 'I den här kursen konstrueras en hel dator, från processor till input/output och grafik. ' +
+            'Kursen är strukturerad som ett projektarbete och konstruktionen sker genom ' +
+            'syntetisering av sina kretsar i språket VHDL. Ett typiskt projekt ' +
+            'resulterar i en dator med ett spelbart spel på.'
   },
   {
     'id': 'TAMS27',
     'name': 'Matematisk statistik',
     'field': 'math',
-    'block': 11,
+    'block': 13,
     'points': 6,
     'year': 2,
     'start': 'VT2',
     'end': 'VT2',
     'precedes': '',
-    'text': ''
+    'text': 'I "matstaten" behandlas sannolikhetsteori, stokastiska processer och statistisk teori. ' +
+            'Sannolikhetsteori är ett relevant koncept för bland annat signalteori och reglerteknik, ' +
+            'eller om man i framtiden t.ex. vill analysera felsäkerhet hos en framtagen produkt. '
   },
   {
     'id': 'TFYA86',
     'name': 'Fysik',
     'field': 'physics',
-    'block': 13,
+    'block': 15,
     'points': 5,
     'year': 2,
     'start': 'VT2',
     'end': 'VT2',
     'precedes': '',
-    'text': ''
+    'text': 'Fysiken liknar mekaniken i sättet man angriper problem, men fokus här ' +
+            'är på betydligt mindre skala. Kursen behandlar bland annat elektromagnetism '+
+            ' och ger en introduktion till kvantmekanik.'
   },
   {
     'id': 'TDDC93',
@@ -306,7 +310,10 @@ var jsonData = [
     'start': 'HT1',
     'end': 'HT1',
     'precedes': '',
-    'text': ''
+    'text': 'Än så länge har man arbetat med mindre programmeringsprojekt, ' +
+            'men hur strutureras ett större projekt upp? PUM:en behandlar ' +
+            'koncept och tillvägagångssätt för storskalig programutveckling, ' +
+            'vilket är något som alla utvecklare kommer ha användning av.'
   },
   {
     'id': 'TDDD88',
@@ -318,19 +325,9 @@ var jsonData = [
     'start': 'HT1',
     'end': 'HT1',
     'precedes': '',
-    'text': ''
-  },
-  {
-    'id': 'TDDD91',
-    'name': 'Ingenjörsprofessionalism del 5',
-    'field': 'softskills',
-    'block': 15,
-    'points': 1,
-    'year': 2,
-    'start': 'HT1',
-    'end': 'HT2',
-    'precedes': '',
-    'text': 'Det här är ingproff'
+    'text': 'Här behandlas grundläggande logik och dess tillämpningar inom ' +
+            'datavetenskap. Databaser och artificiell intelligens är två områden som ' +
+            'flitigt tillämpar logik.'
   },
   {
     'id': 'TSDT84',
@@ -342,7 +339,9 @@ var jsonData = [
     'start': 'HT1',
     'end': 'HT2',
     'precedes': 'TSKS10,TSRT12',
-    'text': ''
+    'text': 'Även känd som Sigsysen. Kursen tar upp forieranalys, laplacetransformer ' +
+            'och att modelera problem inom t.ex. elektroteknik som system för att kunnas analysera dem. ' +
+            'Kursen lägger grunden för fortsatta kurser inom signalteori som fortsätter i TSKS10 och TSRT12.'
   },
   {
     'id': 'TSEA29',
@@ -354,7 +353,11 @@ var jsonData = [
     'start': 'HT1',
     'end': 'HT2',
     'precedes': '',
-    'text': 'KMM. RÅBÅTAR.'
+    'text': 'I den här kursen höjs ambitionsnivåerna från föregående, med målet att kontruera ' +
+            'en robot. I ett projektarbete väljs en robotkropp med 3 processorer ' +
+            'på som ska programmeras för att uppfylla en uppgift. T.ex. kan roboten programmeras ' +
+            'för att navigera och kartlägga ett område eller navigera en labyrint. Projektarbetet ' +
+            'är uppstyrt för att efterlika arbetslivet så mycket som möjligt och kräver stor tidsinvestering. '
   },
   {
     'id': 'TAOP33',
@@ -366,7 +369,12 @@ var jsonData = [
     'start': 'HT2',
     'end': 'HT2',
     'precedes': '',
-    'text': 'GRAFER'
+    'text': 'Kursen behandlar matematiska verktyg för optimering ' +
+            'och introducerar komplexteori för att bedöma problems "svårighetsgrad". ' +
+            'Flera välkända optimeringsproblem tas up så som kappsäcksproblemet, ' +
+            '"traveling salesman problem" och euler-vägar/cyklar. ' +
+            'Optimering är centralt inom mjukvara och väldigt användbart ' +
+            'för en programemrare.'
   },
   {
     'id': 'TDDD60',
@@ -378,31 +386,23 @@ var jsonData = [
     'start': 'VT1',
     'end': 'VT1',
     'precedes': '',
-    'text': ''
-  },
-  {
-    'id': 'TDDD98',
-    'name': 'Ingenjörsprofessionalism del 6',
-    'field': 'softskills',
-    'block': 15,
-    'points': 1,
-    'year': 1,
-    'start': 'VT1',
-    'end': 'VT2',
-    'precedes': '',
-    'text': 'Det här är ingproffen'
+    'text': 'Här studeras interaktion mellan människa och dator, och vikten placeras vid ' +
+            'hur system med hög användbarhet konstrueras. I ett projektarbete tas ' +
+            'ett prototypgränssnitt fram till en tjänst som i slutet demonstreras och presenteras.'
   },
   {
     'id': 'TSRT12',
     'name': 'Reglerteknik',
     'field': 'hardware',
-    'block': 4,
+    'block': 8,
     'points': 6,
     'year': 3,
     'start': 'VT1',
     'end': 'VT1',
     'precedes': '',
-    'text': 'GRAFER'
+    'text': 'Reglertekniken bygger vidare på TSDT84 med konceptet "Hur kan vi reglera ' +
+            'ett system att göra som vi vill?". Centrala begrepp är bland annat ' +
+            'återkoppling och överföringsfunktioner.'
   },
   {
     'id': 'TSKS10',
@@ -414,7 +414,9 @@ var jsonData = [
     'start': 'VT2',
     'end': 'VT2',
     'precedes': '',
-    'text': 'SIKEN'
+    'text': 'Också känd som Siken. Siken bygger vidare på TSDT84 med fokus på hur signaler ' +
+            'kan representera information och hur de kan överföras. T.ex. via radiovåger eller via ' +
+            'sladdar.'
   },
   {
     'id': 'TDDD96',
@@ -426,6 +428,10 @@ var jsonData = [
     'start': 'VT1',
     'end': 'VT2',
     'precedes': '',
-    'text': ''
+    'text': 'Kandidatarbetet symboliserar slutet på den obligatoriska biten av ' +
+            'D-programmet och sker som ett projektarbete. I grupp får man ett ' +
+            'utvecklingsuppdrag ifrån ett företag eller en institution på universitetet ' +
+            'som man arbetar med under våren. Imellanåt stämmer man av med en handledare ' +
+            'men i slutändan läggs stor vikt vid individuellt arbete.'
   }
 ]
