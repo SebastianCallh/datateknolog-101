@@ -196,13 +196,12 @@ CourseGraph.colorLuminance = function(hex, lum) {
   var context = canvas.getContext('2d');
   var setting = CourseGraph.settings;
   var appContainer = document.getElementById('courses-container');
+  var periodOffset = (setting.height - setting.margin) / setting.periodsTotal;
+  var blockOffset = setting.width / (setting.blocks + 1);
+  canvas.width = setting.width;
+  canvas.height = setting.height; 
   var courses = CourseGraph.getCourses(CourseGraph.courseJson,
                   periodOffset, blockOffset, appContainer);
-  canvas.width = setting.width;
-  canvas.height = setting.height
-  var periodOffset = (canvas.height - setting.margin) / setting.periodsTotal;
-  var blockOffset = canvas.width / (setting.blocks + 1);
-
   CourseGraph.drawPeriodsAndYears(canvas, context, periodOffset);
   CourseGraph.setupMouseMoveEvent(canvas, courses, setting.circleRadius);
   CourseGraph.drawCourses(context, courses, setting.margin);
