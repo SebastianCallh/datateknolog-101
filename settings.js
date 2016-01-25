@@ -4,7 +4,7 @@ var CourseGraph = window.CourseGraph || {};
 
 CourseGraph.settings = {
   width: 1000,
-  height: 1400,
+  height: 1200,
   margin: 80,
   periodsPerYear: 4,
   periodsTotal: 12,

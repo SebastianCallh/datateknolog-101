@@ -17,7 +17,7 @@ CourseGraph.courseJson = [
             'inom datavetenskap och moment från kursen återkommer igenom resten av hela utbildningen, ' +
             'även i kurser som inte är direkta påbyggnadskurser. ' +
             'Boolesk algebra tillämpas flitigt i TSEA22 och TDDD88 och grafer ' +
-            'implementeras som mycket användbara datastrukturer i TDDD86. ' +
+            'implementeras som mycket användbara datastrukturer i TDDD86 och TAOP33. ' +
             'Vissa moment används även i labbserien i parallellkursen TDDC66.'
   },
   {
@@ -31,7 +31,7 @@ CourseGraph.courseJson = [
     'end': 'HT1',
     'precedes': 'TDDD73,TDDD60',
     'text': 'Här introduceras universitetets datormiljö tillsammans med operativsystemet Linux Mint. ' +
-            'Programmeringsspråket Python introduceras också och de första laborationer genomförs . '
+            'Programmeringsspråket Python introduceras också och de första laborationer genomförs. '
   },
   {
     'id': 'TDDD63',
@@ -45,7 +45,7 @@ CourseGraph.courseJson = [
     'precedes': '',
     'text': 'Perspektivkursen ger en överblick över datavetenskap som helhet. ' +
             'Allt mellan hur data lagras till artificiell intelligens tas upp här. ' +
-            'I kursen utförs även ett projektarbete som bland annat kan gå ut på att' +
+            'I kursen genomförs även ett projektarbete som bland annat kan gå ut på att' +
             'få programmera en webbapplikation, en AI eller fotbollsrobotar.'
   },
   {
@@ -59,9 +59,9 @@ CourseGraph.courseJson = [
     'end': 'HT1',
     'precedes': '',
     'text': 'Ingenjörsprofessionalismen sträcker sig över samtliga 3 år och ' +
-            'behandlar så kallade "soft skills". Saker som inte kräver att integraler ' +
-            'eller assemblerprogrammering, men som fortfarande är viktiga ute i näringslivet. ' +
-            'Områden som tas upp är till exempel prokrastinering, presentationsteknik och etik.'
+            'behandlar så kallade "soft skills". Saker som inte kräver integraler ' +
+            'eller programmering, men som fortfarande är viktiga ute i näringslivet. ' +
+            'Områden som tas upp är till exempel prokrastinering, presentationsteknik, konsten att kommunicera och etik.'
   },
   {
     'id': 'TDDD73',
@@ -90,9 +90,8 @@ CourseGraph.courseJson = [
     'precedes': 'TATA41,TSTE24',
     'text': 'Den första kursen i analysmatematik. Den är även känd som "grunken" ifrån dens förra namn "matematisk grundkurs". ' +
             'Här behandlas hur korrekt mattespråk skrivs, vad ekvivalens och implikation är och många grundläggande matteverktyg. ' +
-            'Att ha bra koll på den grundläggande matten är viktigt för att hänga med på många delar av utbildningen. ' +
-            'Specifikt återkmomer Eulers formler och komplexa tal som introduceras här i ' +
-            'TFYY86, TSTE24 och TSDT84 och dess påbyggnadskurser.'
+            'Att ha bra koll på den grundläggande matten är viktigt för att hänga med i resten av utbildningen. ' +
+            'Bland annat återkommer Eulers formler och komplexa tal som introduceras här i TFYY68, TSTE24 och TSDT84 och dess påbyggnadskurser.'
   },
   {
     'id': 'TATA41',
@@ -146,10 +145,10 @@ CourseGraph.courseJson = [
     'year': 1,
     'start': 'VT2',
     'end': 'VT2',
-    'precedes': 'TATA76,TSDT84,TFYY86',
+    'precedes': 'TATA76,TSDT84,TFYY68',
     'text': 'Efter envarre-ettan behandlas bland annat kurvlängder, rotations-volymer/areor, ' +
             'Taylor- och Maclaurinutveckling och differentialekvationer. Differentialekvationer ' +
-            'är ett viktigt matematiskt verktyg som behöver behärskas för bla. TFYY86, TATA76 och TSDT84 med påbyggnadskurser. '
+            'är ett viktigt matematiskt verktyg som behöver behärskas för bla. TFYY68, TATA76 och TSDT84 med påbyggnadskurser. '
   },
   {
     'id': 'TSEA22',
@@ -161,9 +160,8 @@ CourseGraph.courseJson = [
     'start': 'VT2',
     'end': 'VT2',
     'precedes': 'TSEA82',
-    'text': 'I digitaltekniken tillämpas Boolesk algebra, Karnaugh-diagram ' +
-            'och tillståndsgrafer för att konstruera digitala kretsar. ' +
-            'Syntetiseringsspråket VHDL presenteras här vilket möjliggör att programmera en krets ' +
+    'text': 'Digitaltekniken går ut på att konstruera och koppla upp logiska kretsar. ' +
+            'Syntetiseringsspråket VHDL introduceras också  här vilket möjliggör att programmera en krets ' +
             'istället för att faktiskt koppla upp den själv. VHDL återkommer i TSEA82  ' +
             'så bra koll på det är fördelaktigt. Det här är även ' +
             'första kursen där man själv får läsa datablad för att förstå komponenter ' +
@@ -178,7 +176,7 @@ CourseGraph.courseJson = [
     'year': 2,
     'start': 'HT1',
     'end': 'HT2',
-    'precedes': 'TAOP33,TSDT84,TATA76,TFYY86',
+    'precedes': 'TAOP33,TSDT84,TATA76,TFYY68',
     'text': 'Också känd som linalgen. Här studeras bland annat vektorer, matriser, ' +
             'linjära ekvationssystem och linjära avbildningar. TATA76 bygger vidare ' +
             'på tidigare studerad analysmatte med hjälp av linalgen och en god förståelse ' +
@@ -216,7 +214,7 @@ CourseGraph.courseJson = [
             'viktig i påbyggnadskursen TSEA83 då en hel dator (inklusive processor) konstrueras. '
   },
   {
-    'id': 'TFYY86',
+    'id': 'TFYY68',
     'name': 'Mekanik',
     'field': 'physics',
     'block': 15,
@@ -225,7 +223,7 @@ CourseGraph.courseJson = [
     'start': 'HT2',
     'end': 'HT2',
     'precedes': 'TFYA86',
-    'text': 'Mekaniken är den första G2-kursen och kräver en bra förståelse för ' +
+    'text': 'Mekaniken kräver en bra förståelse för ' +
             'integraler, derivator och diffekvationer ifrån envarren och ' +
             'av vektorer ifrån linalgen. Kursen behandlar specifikt klassisk mekanik  ' +
             'och ger teoretisk bakgrund ifall man t.ex. vill programmera en fysikmotor ' +
@@ -300,9 +298,9 @@ CourseGraph.courseJson = [
     'start': 'VT2',
     'end': 'VT2',
     'precedes': '',
-    'text': 'Fysiken liknar mekaniken i sättet man angriper problem, men fokus här ' +
-            'är på betydligt mindre skala. Kursen behandlar bland annat elektromagnetism '+
-            ' och ger en introduktion till kvantmekanik.'
+    'text': 'Fysiken är allmänbildning för en civilingenjör och liknar mekaniken i sättet man angriper problem. ' +
+	    'Fokus här ligger dock på betydligt mindre skala, och kursen behandlar bland annat elektromagnetism '+
+            'och ger en introduktion till kvantmekanik.'
   },
   {
     'id': 'TDDC93',
@@ -317,7 +315,9 @@ CourseGraph.courseJson = [
     'text': 'Än så länge har man arbetat med mindre programmeringsprojekt, ' +
             'men hur strutureras ett större projekt upp? PUM:en behandlar ' +
             'koncept och tillvägagångssätt för storskalig programutveckling, ' +
-            'vilket är något som alla utvecklare kommer ha användning av.'
+            'vilket är något som alla utvecklare kommer ha användning av. ' + 
+	    'Redan i kandidatarbetet TDDD69 är det användbart att känna till ' +
+	    'kravhantering och utvecklingsmetoder så som SCRUM.'
   },
   {
     'id': 'TDDD88',
@@ -345,7 +345,7 @@ CourseGraph.courseJson = [
     'precedes': 'TSKS10,TSRT12',
     'text': 'Även känd som Sigsysen. Kursen tar upp forieranalys, laplacetransformer ' +
             'och att modelera problem inom t.ex. elektroteknik som system för att kunnas analysera dem. ' +
-            'Kursen lägger grunden för fortsatta kurser inom signalteori som fortsätter i TSKS10 och TSRT12.'
+            'Kursen lägger grunden för fortsatta kurser inom signalteori och fortsätter i TSKS10 och TSRT12.'
   },
   {
     'id': 'TSEA29',
@@ -357,8 +357,8 @@ CourseGraph.courseJson = [
     'start': 'HT1',
     'end': 'HT2',
     'precedes': '',
-    'text': 'I den här kursen höjs ambitionsnivåerna från föregående med målet att kontruera ' +
-            'en robot. I ett projektarbete väljs en robotkropp med 3 processorer ' +
+    'text': 'Förkortas ofta KMM. I den här kursen höjs ambitionsnivåerna från föregående med målet att kontruera ' +
+            'en robot. I ett större projektarbete väljs en robotkropp med 3 processorer ' +
             'på som ska programmeras för att uppfylla en uppgift. T.ex. kan roboten programmeras ' +
             'för att navigera och kartlägga ett område eller navigera en labyrint. Projektarbetet ' +
             'är uppstyrt för att efterlika arbetslivet så mycket som möjligt och kräver stor tidsinvestering. '
@@ -391,7 +391,7 @@ CourseGraph.courseJson = [
     'end': 'VT1',
     'precedes': '',
     'text': 'Här studeras interaktion mellan människa och dator, och vikten placeras vid ' +
-            'hur system med hög användbarhet konstrueras. I ett projektarbete tas ' +
+            'hur system med hög användbarhet konstrueras. I ett enskilt projekt tas ' +
             'ett prototypgränssnitt fram till en tjänst som i slutet demonstreras och presenteras.'
   },
   {
@@ -404,8 +404,8 @@ CourseGraph.courseJson = [
     'start': 'VT1',
     'end': 'VT1',
     'precedes': '',
-    'text': 'Reglertekniken bygger vidare på TSDT84 med konceptet "Hur kan vi reglera ' +
-            'ett system att göra som vi vill?". Centrala begrepp är bland annat ' +
+    'text': 'Reglerteknik är en viktig lära för en civilingenjör. Kursen bygger vidare på TSDT84 med konceptet ' + 
+            '"Hur kan vi reglera ett system att göra som vi vill?". Centrala begrepp är bland annat ' +
             'återkoppling och överföringsfunktioner.'
   },
   {
@@ -433,7 +433,7 @@ CourseGraph.courseJson = [
     'end': 'VT2',
     'precedes': '',
     'text': 'Kandidatarbetet symboliserar slutet på den obligatoriska biten av ' +
-            'D-programmet och sker som ett projektarbete. I grupp får man ett ' +
+            'D-programmet och sker som ett projektarbete i en större grupp. Gruppen får ett ' +
             'utvecklingsuppdrag ifrån ett företag eller en institution på universitetet ' +
             'som man arbetar med under våren. Imellanåt stämmer man av med en handledare ' +
             'men i slutändan läggs stor vikt vid individuellt arbete.'

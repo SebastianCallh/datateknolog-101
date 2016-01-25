@@ -25,7 +25,6 @@ CourseGraph.Course = function (id, name, points, position, circleRadius, color,
 CourseGraph.Course.prototype.draw = function(context) {
     CourseGraph.drawCircle(context, this.position, this.circleRadius,
       this.color, CourseGraph.colorLuminance(this.color, -0.5));
-
     for (var i = 0; i < this.precedes.length; i++) {
       var procedingCourse = this.precedes[i];
       CourseGraph.drawLine(context, this.position,
@@ -193,13 +192,15 @@ CourseGraph.colorLuminance = function(hex, lum) {
 //in the global namespace
 (CourseGraph.main = function() {
   var canvas = document.getElementById('courseCanvas');
+  var abstract = document.getElementById('courses-abstract');
   var context = canvas.getContext('2d');
   var setting = CourseGraph.settings;
   var appContainer = document.getElementById('courses-container');
   var periodOffset = (setting.height - setting.margin) / setting.periodsTotal;
   var blockOffset = setting.width / (setting.blocks + 1);
   canvas.width = setting.width;
-  canvas.height = setting.height; 
+  canvas.height = setting.height;
+  abstract.style.width = setting.width;
   var courses = CourseGraph.getCourses(CourseGraph.courseJson,
                   periodOffset, blockOffset, appContainer);
   CourseGraph.drawPeriodsAndYears(canvas, context, periodOffset);

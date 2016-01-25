@@ -8,12 +8,12 @@
 
 #courses-container div.course-name {
   font-weight: bold;
-  width: 260px;
+  width: 280px;
 }
 
 #courses-container div.course-points {
   font-weight: bold;
-  width: 40px;
+  width: 50px;
 }
 
 #courses-container div.course-text {
@@ -23,7 +23,7 @@
 
 #courses-container .course-text-visible {
   display:block;
-  width: 300px;
+  width: 350px;
   background-color: #ffffff;
   position: absolute;
   padding: 10px;
